@@ -13,10 +13,19 @@ function cargarLocalStorage (){
     ];
 localStorage.setItem("productos",JSON.stringify(productosPrincipales));
 }
-
-
 cargarLocalStorage()
 
+//Sweet alert
+const alert = document.querySelector('#btnComprar');
+alert.addEventListener ("click", () => {
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Compra realizada con éxito',
+        showConfirmButton: false,
+        timer: 2500
+      })
+});
 
 //MODELOS
 const Celulares = [
@@ -68,10 +77,19 @@ const getCard = (item) => {
     <p class="card-text">Color: ${item.color}</p>
     <p class="card-text">Precio: $${item.precio} ARS</p>
     <p class="card-text">Stock: ${item.stock}</p>
-    <button onclick=agregarCarrito(${item.id}) class="btn ${item.stock ? 'btn-primary' : 'btn-secondary'}" ${!item.stock ? 'disabled' : '' } >Agregar al carrito</button>    </div>
- </div>
+    <button onclick= agregarCarrito(${item.id}) class="btn ${item.stock ? 'btn-primary' : 'btn-secondary'}" ${!item.stock ? 'disabled' : '' }">Agregar al carrito</button></div>
+    </div>
     `)
     }
+const botoncito = () => {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+}
+
 // Segunda card
 const getRow = (item) => {
     return (
@@ -88,7 +106,6 @@ const getRow = (item) => {
         `
     )
 }
-
 //acumulador
 const cargarProductos = (datos, loQueseMuestra, tablita) => {
     let acumulando = "";
@@ -97,6 +114,7 @@ const cargarProductos = (datos, loQueseMuestra, tablita) => {
     })
     loQueseMuestra.innerHTML = acumulando;
 };
+
 
 //CARRITO
 const agregarCarrito = (id) => {
