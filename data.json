@@ -1,0 +1,32 @@
+[
+    {
+    "id":1,
+    "producto":"funda Iphone",
+    "precio": 500,
+    "color":"rojo",
+    "imagen":"https://d3ugyf2ht6aenh.cloudfront.net/stores/001/283/691/products/611-4836c3fa5f1987c4fc15993099801484-640-0.png"},
+    {
+    "id":2,
+    "producto":"funda Iphone",
+    "precio": 500,
+    "color":"verde",
+    "imagen":"https://d3ugyf2ht6aenh.cloudfront.net/stores/001/283/691/products/x-green1-a27bfae87b3835606016302520907404-640-0.png"},
+    {
+    "id":3,
+    "producto":"funda Xiaomi",
+    "precio": 400,
+    "color":"negro",
+    "imagen":"https://http2.mlstatic.com/D_NQ_NP_626083-MLA44600758798_012021-O.webp"},
+    {
+    "id":4,
+    "producto":"Auriculares Iphone",
+    "precio": 3500,
+    "color":"blanco",
+    "imagen":"https://i.blogs.es/6e6679/earpods3/1366_2000.jpg"},
+    {
+    "id":5,
+    "producto":"auriculares Xiaomi",
+    "precio": 2000,
+    "color":"negro",
+    "imagen":"https://www.xiaomiadictos.com/wp-content/uploads/2020/08/xiaomi-redmi-airdots-2-auriculares-review-analisis-768x404.jpg"}
+]

@@ -27,6 +27,29 @@ alert.addEventListener ("click", () => {
       })
 });
 
+//FETCH
+const fechito = document.getElementById("fetch");
+fetch ('/data.json')
+.then((res) => res.json())
+.then((data) => {
+    data.forEach((producto) => {
+        const parrafo = document.createElement('p')
+        parrafo.innerHTML =
+        `
+        <div class="card mb-3">
+        <img src="${producto.imagen}" style="width: 100px" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">${producto.producto}</h5>
+            <p class="card-text">$${producto.precio}</p>
+            <p class="card-text"><small class="text-muted">${producto.color}</small></p>
+            <button class="btn 'btn-primary' 'btn-secondary'">Agregar al carrito</button>
+        </div>
+        </div>
+        `
+    fechito.append(parrafo)
+    })
+})
+
 //MODELOS
 const Celulares = [
     {id: 1,
