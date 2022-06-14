@@ -9,22 +9,27 @@
 </head>
 <body class="bg-light">
     <div class="container">
-        <header class="d-flex justify-content-center py-3">
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">CelularesOn</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Nosotros</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Contacto</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Productos</a></li>
-          </ul>
+        <header class="d-flex justify-content-center py-3 ">
+          <nav class="navbar bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand">Celulares<span class="text-muted">On</span></a>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+              </form>
+            </div>
+          </nav>
         </header>
         <div class="container row" id="productos"></div>
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Carrito
-</button>
-
+    <div class="row g-0">
+      <div class="col-sm-6 col-md-8"></div>
+      <div class="col-6 col-md-4">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Carrito</button>
+      </div>
+    </div>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -38,15 +43,11 @@
               <th scope="col">Id</th>
               <th scope="col">Nombre</th>
               <th scope="col">Color</th>
-              <th scope="col">Cámara</th>
               <th scope="col">Precio</th>
               <th scope="col">Cantidad</th>
-              
-              
             </tr>
           </thead>
           <tbody id="tablaCarrito">
-          
           </tbody>
         </table>
       </div>
@@ -56,7 +57,7 @@
       </div>
     </div>
   </div>
-</div>
+  </div>
 
   <!-- FETCH -->
 
@@ -64,10 +65,10 @@
   
 <script src="./index.js"></script>
     <!-- sweetalert2 -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    <script src="luxon.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+
+<!-- <script src="luxon.js"></script> -->
     <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

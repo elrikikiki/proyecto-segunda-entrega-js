@@ -4,16 +4,20 @@ const tablitaCarrito = document.getElementById ("tablaCarrito");
 const carrito = [];
 
 //LOCAL STORAGE
-function cargarLocalStorage (){
-    let productosPrincipales = [
-        {id: 1, producto: "Iphone 10"},
-        {id: 2, producto: "Iphone 11"},
-        {id: 3, producto: "Redmi 1"},
-        {id: 4, producto:"Redmi 2"}
-    ];
-localStorage.setItem("productos",JSON.stringify(productosPrincipales));
+function cargarLocalStorage() {
+    let carritoVacio = [];
+
+    localStorage.setItem("carrito",JSON.stringify(carritoVacio));
 }
-cargarLocalStorage()
+/* cargarLocalStorage() una vez que le doy en comprar, ahi lo activo a esto asi se refresca todo*/
+function agregar(celularProducto) {
+    let vacio = JSON.parse(localStorage.getItem("carrito"));
+    let celu = {id: vacio.length + 1, nombre: celularProducto};
+    vacio.push(celu);
+    localStorage.setItem("carrito",JSON.stringify(vacio));
+}
+/* let celularProducto = 
+agregar(celularProducto); */
 
 //Sweet alert
 const alert = document.querySelector('#btnComprar');
@@ -26,7 +30,6 @@ alert.addEventListener ("click", () => {
         timer: 2500
       })
 });
-
 //FETCH
 const fechito = document.getElementById("fetch");
 fetch ('/data.json')
@@ -93,7 +96,7 @@ const Celulares = [
 const getCard = (item) => {
     return(`
  <div class="card" style="width: 18rem;">
-  <img src="${item.imagen}" class="card-img-top" alt="${item.nombre}">
+  <img src="${item.imagen}" class="card-img-top" style="height:200px" alt="${item.nombre}">
     <div class="card-body">
     <h5 class="card-title">${item.nombre}</h5>
     <p class="card-text">Cámara: ${item.camara}</p>
@@ -104,15 +107,14 @@ const getCard = (item) => {
     </div>
     `)
     }
-const botoncito = () => {
+/* const botoncito = () => {
     Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Something went wrong!',
         footer: '<a href="">Why do I have this issue?</a>'
       })
-}
-
+} */
 // Segunda card
 const getRow = (item) => {
     return (
@@ -121,7 +123,6 @@ const getRow = (item) => {
               <th scope="row">${item.id}</th>
               <td>${item.nombre}</td>
               <td>${item.color}</td>
-              <td>${item.camara}</td>
               <td>$${item.precio * item.cantidad}($${item.precio})</td>
               <td>${item.cantidad}</td>
               <td><img style="width: 20px" src= "${item.imagen}" alt= "imagen"></td>
@@ -138,7 +139,6 @@ const cargarProductos = (datos, loQueseMuestra, tablita) => {
     loQueseMuestra.innerHTML = acumulando;
 };
 
-
 //CARRITO
 const agregarCarrito = (id) => {
     const seleccion = Celulares.find (item => item.id === id);
@@ -153,7 +153,7 @@ const agregarCarrito = (id) => {
         cantidad: 1,
         imagen: seleccion.imagen,
     })
-    }   else {
+    } else {
     carrito[buscar].cantidad = carrito [buscar].cantidad + 1
 }
     cargarProductos (carrito, tablitaCarrito, true)
