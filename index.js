@@ -1,7 +1,8 @@
 //Constantes troncales
 const celularesContenedor = document.getElementById("productos");
 const tablitaCarrito = document.getElementById ("tablaCarrito");
-const carrito = [];
+let carrito = [];
+
 
 //Sweet alert
 /* const alert = document.querySelector('#btnComprar');
@@ -113,9 +114,13 @@ const getRow = (item) => {
         `
     )
 }
+//localStorage
+//No puedo hacer que aparezca en el HTML
+/* const guardado = JSON.parse(localStorage.getItem(carrito));
+tablitaCarrito.innerHTML = guardado; */
 
 //Acumulador
-const cargarProductos = (datos, loQueseMuestra, isCargaCarrito) => {
+const cargarProductos = (datos, loQueseMuestra, isCargaCarrito,) => {
     let acumulando = "";
     let objetos = [];
     datos.forEach ((el) =>{
@@ -123,12 +128,14 @@ const cargarProductos = (datos, loQueseMuestra, isCargaCarrito) => {
             acumulando += getCard(el);
         }else{
             acumulando += getRow(el);
-            objetos.push(el);
+            objetos.push(el)
         }
     })
     loQueseMuestra.innerHTML = acumulando;
-    isCargaCarrito ? localStorage.setItem("carrito",JSON.stringify(objetos)) :'';// se llena el localStorage con los celulares que estan el carrito
-};
+    isCargaCarrito ? window.localStorage.setItem("carrito",JSON.stringify(objetos)) :'';// se llena el localStorage con los celulares que estan el carrito
+
+  };
+
 
 //CARRITO
 const agregarCarrito = (id) => {
@@ -253,20 +260,6 @@ const pagar = async () => {
   ],
   "metadata": {}
 }' */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* const mercadoLibre = async () => { */
